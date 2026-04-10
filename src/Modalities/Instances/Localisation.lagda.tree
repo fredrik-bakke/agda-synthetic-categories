@@ -18,6 +18,7 @@ open import Core.CanonicalPushouts
 open import Core.Codiagonal
 open import Core.CoSlice
 open import Core.Arrow
+open import Core.ArrowRetract
 open import Core.ArrowEquiv
 open import Core.Postwhisker
 open import Ergonomics.Notations.Orthogonality
@@ -565,21 +566,15 @@ module _
     → ((x : X) → H (j0 x) ＝ sf .fst (f x))
     → ((x : X) → H (j1 x) ＝ x)
     → is-equiv f
-  is-equiv←local-deformation-cone Xloc (s , sec) H j0 j1 G H0 H1
-    = is-equiv←qiso qiso where
+  is-equiv←local-deformation-cone Xloc sf H j0 j1 G H0 H1
+    = is-equiv←qiso (r .fst , r .snd , sf .snd) where
 
-    qiso : quasi-iso f
-    qiso .fst = s
-    qiso .snd .fst x
-      = s (f x)                                  ＝⟨ sym (H0 x) ⟩
-        H (j0 x)                                 ＝⟨ sym (happly (is-equiv.ε (Xloc tt) H) (j0 x)) ⟩
-        is-equiv.bwd (Xloc tt) H (g (j0 x))      ＝⟨ ap (is-equiv.bwd (Xloc tt) H) (G x) ⟩
-        is-equiv.bwd (Xloc tt) H (g (j1 x))      ＝⟨ happly (is-equiv.ε (Xloc tt) H) (j1 x) ⟩
-        H (j1 x)                                 ＝⟨ H1 x ⟩
-        x                                        ∎
-    qiso .snd .snd = sec
+    r : retraction f
+    r = retraction←is-equiv-precomp-dom
+          (is-local←deformation-cone-over Xloc sf H j0 j1 G H0 H1 tt)
 }
 %```
+}
 
 \subtree[stt-0066]{
 \title{Localisation is a [reflective subuniverse](stt-0041)}
