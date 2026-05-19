@@ -50,8 +50,8 @@ syntax Σ A (λ x → B) = Σ[ x ∶ A ] B
 \p{Additionally, given a family of types #{B : A \to \cal{U}}, we write #{\startverb \~{B} \stopverb} to signify the total space #{\Sigma_{a : A} B(a)}, and use #{\pi : \tot{B} \to A} to refer to the first projection.}
 
 \p{
-We also introduce Agda syntax for the shorthand style #{\Sigma_{x,y : A} B(x)} for
-multivariable dependent sums.
+We also introduce Agda syntax for the shorthand style #{\Sigma_{{x\,y} : A} B(x)} for
+iterated dependent sums on the same type.
 }
 
 \agda{
@@ -63,13 +63,13 @@ syntax Σ₂ A (λ x y → B) = Σ[ x y ∶ A ] B
 
 Σ₃ : ∀ {𝓤 𝓥} (A : Type 𝓤) (B : A → A → A → Type 𝓥) → Type (𝓤 ⊔ 𝓥)
 Σ₃ A B =  Σ A (λ x → Σ₂ A (B x))
-{-# INLINE Σ₂ #-}
+{-# INLINE Σ₃ #-}
 
 syntax Σ₃ A (λ x y z → B) = Σ[ x y z ∶ A ] B
 
 Σ₄ : ∀ {𝓤 𝓥} (A : Type 𝓤) (B : A → A → A → A → Type 𝓥) → Type (𝓤 ⊔ 𝓥)
 Σ₄ A B =  Σ A (λ x → Σ₃ A (B x))
-{-# INLINE Σ₂ #-}
+{-# INLINE Σ₄ #-}
 
 syntax Σ₄ A (λ x y z w → B) = Σ[ x y z w ∶ A ] B
 }
