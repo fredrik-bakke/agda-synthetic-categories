@@ -15,9 +15,13 @@
         <link rel="stylesheet" href="{/f:tree/@base-url}Agda.css" />
         <link rel="stylesheet" href="{/f:tree/@base-url}st-style.css" />
         <link rel="icon" href="{/f:tree/@base-url}favicon.ico" />
+        <link rel="icon" href="{/f:tree/@base-url}favicon-dark.ico" media="(prefers-color-scheme: dark)" />
         <link rel="icon" type="image/png" sizes="32x32" href="{/f:tree/@base-url}favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{/f:tree/@base-url}favicon-32x32-dark.png" media="(prefers-color-scheme: dark)" />
         <link rel="icon" type="image/png" sizes="16x16" href="{/f:tree/@base-url}favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{/f:tree/@base-url}favicon-16x16-dark.png" media="(prefers-color-scheme: dark)" />
         <link rel="apple-touch-icon" href="{/f:tree/@base-url}apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="{/f:tree/@base-url}apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)" />
         <script type="text/javascript">
           <xsl:if test="/f:tree/f:frontmatter/f:source-path">
             <xsl:text>window.sourcePath = '</xsl:text>
